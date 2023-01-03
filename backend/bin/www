@@ -4,13 +4,28 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app.js');
 var debug = require('debug')('business-management-software:server');
 var http = require('http');
-
+var mongoose = require("mongoose");
+var dotenv = require('dotenv');
+dotenv.config();
 /**
  * Get port from environment and store in Express.
  */
+
+/**
+ * Connect to MongoDB
+ **/
+
+ var mongoDbUrl = process.env.MONGODB_URL;
+ mongoose.connect(mongoDbUrl, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
+ });
+ 
+ var db = mongoose.connection;
+ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -87,4 +102,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log(`listening on port ${port}`)
 }
