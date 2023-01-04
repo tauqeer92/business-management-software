@@ -1,6 +1,5 @@
 const Mattress = require("../models/mattress.model");
-const getAllMattresses = require("../service/mattresses.service");
-const createMattress = require("../service/mattresses.service");
+const {getAllMattresses, createMattress} = require("../service/mattresses.service");
 
 
 const MattressController = {

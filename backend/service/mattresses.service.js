@@ -4,12 +4,12 @@ const getAllMattresses = async () => {
     return Mattress.find()
 }
 
-const createMattress = async () => {
-    return await Mattress.create(input)
+const createMattress = async (input) => {
+    return Mattress.create(input)
 }
 
 const deleteMattress = async () => {
     Mattress.deleteOne(input)
 }
 
-module.exports = getAllMattresses, createMattress, deleteMattress
+module.exports = { createMattress, getAllMattresses, deleteMattress};

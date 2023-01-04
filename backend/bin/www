@@ -19,11 +19,7 @@ dotenv.config();
  **/
 
  var mongoDbUrl = process.env.MONGODB_URL;
- mongoose.connect(mongoDbUrl, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
- });
- 
+ mongoose.connect(mongoDbUrl ?? '')
  var db = mongoose.connection;
  db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
