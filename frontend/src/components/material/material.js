@@ -1,4 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
+import './material.css'
+
 
 const Material = ({material}) => {
     const [details, setShowDetails] = useState(false)
@@ -11,8 +13,8 @@ const Material = ({material}) => {
     }
 
   return (
-    <div>
-      <h1>{material.name}</h1>
+    <div className="material-name">
+      <h2>{material.name}</h2>
       <button onClick={handleShowDetails}>Details</button>
       {details ? additionalInformation() : null}
       

@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react"
+import './material_dashboard.css'
 import Material from "../material/material";
+
 
 const MaterialDashboard = () => {
     const [materials, setMaterial] = useState([]);
@@ -19,12 +21,14 @@ const MaterialDashboard = () => {
       return (
         <div className="materials-index">
           <h1>Material Dashboard</h1>
-          <div className="materials">
+          <div className="list-materials">
           {materials.map((material) => (
+            <div className="material">
             <Material
               material={material}
               key={material.id}
             />
+            </div>
           ))}
 
           </div>
