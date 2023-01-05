@@ -1,8 +1,12 @@
 import './App.css';
+import {Routes,Route} from "react-router-dom";
+import MaterialDashboard from './components/material_dashboard/material_dashboard';
 
 function App() {
   return (
-   <h1>Business Management Software</h1>
+    <Routes>
+      <Route path='/materials' element={<MaterialDashboard/>}/>
+    </Routes>
   );
 }
 
