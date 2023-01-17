@@ -1,7 +1,19 @@
-.material {
-    height: 150px;
-    width: 30%;
+.list-materials {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* left: 100px; */
     
+    
+
+}
+
+.material {
+    position: relative;
+    border-style: ridge;
+    
+    padding: 50px;
+    width: 30%;
 }
 
 .materials-index h1 {

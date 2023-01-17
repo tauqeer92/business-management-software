@@ -24,10 +24,10 @@ const MaterialDashboard = () => {
           <div className="list-materials">
           {materials.map((material) => (
             <div className="material">
-            <Material
-              material={material}
-              key={material.id}
-            />
+              <Material
+                material={material}
+                key={material.id}
+              />
             </div>
           ))}
 
