@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
-import './material.css'
+import './mattress.css'
 
 
-const Material = ({material}) => {
+const Mattress = ({mattress}) => {
     const [details, setShowDetails] = useState(false)
     const handleShowDetails = () => {
         setShowDetails(!details)
     }
     const additionalInformation = () => {
-      return <div class="details"><h3>Price: {material.price}</h3><h3>Description: {material.description}</h3></div>
+      return <div><h3>Cost: {mattress.cost}</h3><h3>Price: {mattress.price}</h3><h3>Description: {mattress.description}</h3><h3>Size: {mattress.size}</h3></div>
 
     }
 
   return (
-    <div className="material-name">
-      <h2>{material.name}</h2>
+    <div className="mattress-name">
+      <h2>{mattress.name}</h2>
       <button onClick={handleShowDetails}>Details</button>
       {details ? additionalInformation() : null}
       
@@ -25,4 +25,4 @@ const Material = ({material}) => {
 
 }
 
-export default Material
+export default Mattress
