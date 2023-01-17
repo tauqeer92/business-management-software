@@ -9,7 +9,7 @@ const MattressDashboard = () => {
         fetch("/mattress", {
         })
           .then((response) => response.json())
-          .then(async data => setMattress(data.mattress))
+          .then(async data => setMattress(data.mattresses))
     }
 
 

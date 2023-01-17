@@ -1,7 +1,15 @@
+.list-mattresses {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .mattress {
-    height: 150px;
-    width: 30%;
+    position: relative;
+    border-style: ridge;
     
+    padding: 50px;
+    width: 30%;
 }
 
 .mattress-index h1 {
