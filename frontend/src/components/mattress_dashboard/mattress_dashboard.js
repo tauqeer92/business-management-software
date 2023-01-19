@@ -3,8 +3,11 @@ import './mattress_dashboard.css'
 import Mattress from "../mattress/mattress";
 
 
+
 const MattressDashboard = () => {
     const [mattresses, setMattress] = useState([]);
+    
+    
     const loadAllMattresses = () => {
         fetch("/mattress", {
         })
@@ -12,25 +15,22 @@ const MattressDashboard = () => {
           .then(async data => setMattress(data.mattresses))
     }
 
-
     useEffect(() => {
-        loadAllMattresses();
-      }, []);
-    
+      loadAllMattresses();
+    }, []);
 
       return (
         <div className="mattress-index">
           <h1>Mattress Dashboard</h1>
           <div className="list-mattress">
             {mattresses.map((mattress) => (
-              <div className="mattress">
+              <div key={mattress._id} className="mattress">
               <Mattress
                 mattress={mattress}
-                key={mattress.id}
               />
             </div>
           ))}
-
+          
           </div>
         </div>
       ) 
