@@ -1,3 +1,13 @@
+.list-materials {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
 
-
-
+.material {
+    position: relative;
+    border-style: ridge;
+    
+    padding: 50px;
+    width: 30%;
+}

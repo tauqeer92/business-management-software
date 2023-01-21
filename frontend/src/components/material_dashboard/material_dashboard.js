@@ -8,7 +8,7 @@ const MaterialDashboard = () => {
     const loadAllMaterials = () => {
         fetch("/material", {
         })
-          .then((response) => response.json())
+          .then((response) => response.json()) // why do we need this when it's already in json ??
           .then(async data => setMaterial(data.materials))
     }
 
@@ -26,7 +26,7 @@ const MaterialDashboard = () => {
             <div className="material">
               <Material
                 material={material}
-                key={material.id}
+                key={material._id}
               />
             </div>
           ))}

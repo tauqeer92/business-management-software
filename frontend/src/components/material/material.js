@@ -21,8 +21,6 @@ const Material = ({material}) => {
     </div>
     
   )
-  
-
 }
 
 export default Material

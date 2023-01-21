@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import Material from '../material/material.js';
 import AddMaterial from '../material/addMaterial.js';
 import './mattress.css'
-
-
 
 const Mattress = ({mattress}) => {
     const [mattressDetails, setShowMattressDetails] = useState(false)
@@ -18,31 +17,32 @@ const Mattress = ({mattress}) => {
         .then((response) => response.json())
         .then(data => {
           setMaterial(data.materials)
+          console.log(data.materials)
         })
         .catch((error) => {
           console.error(error)
         })
     }
 
-    useEffect(() => {
-      loadAllMaterials();
-    }, []);
-
-    const displayMaterials = () => {
-      loadAllMaterials()
+    const showMaterials = () => {
       return (
-          <div className="materials">
+          <div className="list-materials">
           {materials.map((material) => (
-          <div className="material">
-            <AddMaterial
+            <div className="material">
+              <AddMaterial
                 material={material}
                 key={material._id}
-            />
+              />
+            </div>
+          ))}
+
           </div>
-        ))}
-        </div>
-     )
-    }
+      ) 
+  }
+
+      useEffect(() => {
+        loadAllMaterials();
+      }, [showAddMaterial])
 
     const setMaterials = () => {
       setAddMaterial(!showAddMaterial)
@@ -55,19 +55,17 @@ const Mattress = ({mattress}) => {
   return (
     <div className="mattress-name">
       <h2>{mattress.name}</h2>
-      <button onClick={handleShowMattressDetails}>Details</button>
+      <button onClick={handleShowMattressDetails}>Mattress Details</button>
       {mattressDetails ? additionalMattressInformation() : null}
-      <button onClick={setMaterials}>Show Materials </button>
-      {showAddMaterial ? displayMaterials(): null}
-      
       <br></br>
+      <br></br>
+      <button onClick={setMaterials}>Add Materials </button>
+      {showAddMaterial ? showMaterials(): null}
       
       
     </div>
     
   )
-  
-
 }
 
 export default Mattress

@@ -1,22 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './material.css'
 
 
-const AddMaterial = ({material}) => {
-    const [details, setShowDetails] = useState(false)
-    const handleShowDetails = () => {
-        setShowDetails(!details)
-    }
-    const additionalInformation = () => {
-      return <div class="details"><h3>Price: {material.price}</h3><h3>Description: {material.description}</h3></div>
+const AddMaterial = ({material, mattressId}) => {
 
+    const addMaterial = () => {
+        fetch("creatematerial", {
+        method: "put",
+        body: JSON.stringify({mattresses: mattressId})
+        })
+         .then(response => response.json())
     }
+
+    useEffect(() => {
+        addMaterial()
+    }, []);
+    
 
   return (
     <div className="material-name">
       <h2>{material.name}</h2>
-      <button onClick={handleShowDetails}>Add Material</button>
-      {details ? additionalInformation() : null}
+      <button onClick={addMaterial}>Add Material</button>
+      
       
     </div>
     
