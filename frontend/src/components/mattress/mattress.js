@@ -3,7 +3,7 @@ import Material from '../material/material.js';
 import AddMaterial from '../material/addMaterial.js';
 import './mattress.css'
 
-const Mattress = ({mattress}) => {
+const Mattress = ({mattress, mattressId}) => {
     const [mattressDetails, setShowMattressDetails] = useState(false)
     const [materials, setMaterial] = useState([])
     const [showAddMaterial, setAddMaterial] = useState(false) 

@@ -2,19 +2,21 @@ import React, {useEffect, useState} from 'react';
 import './material.css'
 
 
-const AddMaterial = ({material, mattressId}) => {
+const AddMaterial = ({material}) => {
 
     const addMaterial = () => {
-        fetch("creatematerial", {
-        method: "put",
-        body: JSON.stringify({mattresses: mattressId})
+        fetch("/updatemattress", {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({materials: material._id})
         })
          .then(response => response.json())
+         .then(data => {
+          console.log(data.mattress_data)
+        })
     }
-
-    useEffect(() => {
-        addMaterial()
-    }, []);
     
 
   return (

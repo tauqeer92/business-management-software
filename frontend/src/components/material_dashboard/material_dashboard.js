@@ -12,7 +12,6 @@ const MaterialDashboard = () => {
           .then(async data => setMaterial(data.materials))
     }
 
-
     useEffect(() => {
         loadAllMaterials();
       }, []);

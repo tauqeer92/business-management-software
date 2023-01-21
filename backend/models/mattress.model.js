@@ -10,7 +10,7 @@ const mattressSchema = new mongoose.Schema({
     description: {type: String},
     materials: [{
 		type: Schema.Types.ObjectId,
-		ref: "Mattress"
+		ref: "Material"
 	}]
 });
 

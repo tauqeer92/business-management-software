@@ -12,4 +12,8 @@ const deleteMattress = async () => {
     Mattress.deleteOne(input)
 }
 
-module.exports = { createMattress, getAllMattresses, deleteMattress};
+const updateMattress = async (input) => {
+    return await Mattress.updateOne(input)
+  }
+
+module.exports = { createMattress, getAllMattresses, deleteMattress, updateMattress};
