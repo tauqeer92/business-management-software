@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './material.css'
 
 
-const AddMaterial = ({material}) => {
+const AddMaterial = ({material, mattressId}) => {
 
     const addMaterial = () => {
         fetch("/updatemattress", {
@@ -10,7 +10,7 @@ const AddMaterial = ({material}) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({materials: material._id})
+        body: JSON.stringify({id: mattressId, materials: material._id})
         })
          .then(response => response.json())
          .then(data => {
@@ -23,8 +23,6 @@ const AddMaterial = ({material}) => {
     <div className="material-name">
       <h2>{material.name}</h2>
       <button onClick={addMaterial}>Add Material</button>
-      
-      
     </div>
     
   )

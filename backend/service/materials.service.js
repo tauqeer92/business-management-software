@@ -11,7 +11,9 @@ const getAllMaterials = async () => {
 }
 
 const updateMaterial = async (input) => {
+  
   return await Material.updateOne(input)
+
 }
 
 module.exports = { createMaterial, getAllMaterials, updateMaterial };

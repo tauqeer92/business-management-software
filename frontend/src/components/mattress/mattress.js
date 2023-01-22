@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import Material from '../material/material.js';
+// import Material from '../material/material.js';
 import AddMaterial from '../material/addMaterial.js';
 import './mattress.css'
 
-const Mattress = ({mattress, mattressId}) => {
+
+const Mattress = ({mattress}) => {
     const [mattressDetails, setShowMattressDetails] = useState(false)
     const [materials, setMaterial] = useState([])
     const [showAddMaterial, setAddMaterial] = useState(false) 
@@ -24,13 +25,14 @@ const Mattress = ({mattress, mattressId}) => {
         })
     }
 
-    const showMaterials = () => {
+    const showAllMaterials = () => {
       return (
           <div className="list-materials">
           {materials.map((material) => (
             <div className="material">
               <AddMaterial
                 material={material}
+                mattressId={mattress._id}
                 key={material._id}
               />
             </div>
@@ -60,7 +62,7 @@ const Mattress = ({mattress, mattressId}) => {
       <br></br>
       <br></br>
       <button onClick={setMaterials}>Add Materials </button>
-      {showAddMaterial ? showMaterials(): null}
+      {showAddMaterial ? showAllMaterials(): null}
       
       
     </div>

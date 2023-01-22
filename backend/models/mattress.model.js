@@ -8,10 +8,12 @@ const mattressSchema = new mongoose.Schema({
     cost: {type: Number},
     price: {type: Number},
     description: {type: String},
-    materials: [{
-		type: Schema.Types.ObjectId,
-		ref: "Material"
-	}]
+    materials: {type: [String]}
+  //   materials: [{
+	// 	// type: Schema.Types.ObjectId,
+	// 	// ref: "Material"
+	// }]
+
 });
 
 

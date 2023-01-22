@@ -13,7 +13,7 @@ const deleteMattress = async () => {
 }
 
 const updateMattress = async (input) => {
-    return await Mattress.updateOne(input)
-  }
+    return await Mattress.updateOne({'_id': input.id}, {$push : {materials : input.materials}})
+}
 
 module.exports = { createMattress, getAllMattresses, deleteMattress, updateMattress};

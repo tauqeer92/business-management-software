@@ -16,7 +16,7 @@ const MattressController = {
     },
 
     Update: async (req, res) => {
-		const mattress_data = {name: req.body.name, size: req.body.size, type: req.body.type, cost: req.body.cost, price: req.body.price, description: req.body.description, materials: req.body.materials}
+		const mattress_data = {id: req.body.id, name: req.body.name, size: req.body.size, type: req.body.type, cost: req.body.cost, price: req.body.price, description: req.body.description, materials: req.body.materials}
 		const updated_mattress = await updateMattress(mattress_data)
 		res.json({mattress_data})
 	}
