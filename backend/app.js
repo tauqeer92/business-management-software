@@ -7,6 +7,7 @@ var logger = require('morgan');
 var createError = require('http-errors');
 const materialRoutes = require('./routes/materials.route')
 const mattressRoutes = require('./routes/mattresses.route')
+const userRoutes = require('./routes/users.route')
 var app = express()
 
 // Middleware
@@ -18,6 +19,7 @@ app.use(cors());
 
 materialRoutes(app);
 mattressRoutes(app);
+userRoutes(app);
 
 // Render Engine
 
